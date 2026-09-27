@@ -1,260 +1,453 @@
-# Satoshi Sentinel
+# ₿ Satoshi Sentinel
 
-**"Know what you're signing. Know who you're trusting."**
+### Know what you're signing. Know who you're trusting.
 
-An explainable, privacy-first security companion for the Bitcoin and Nostr
-ecosystems. Built for BOSS Battle 2026 (Bitshala) — AI track.
+Satoshi Sentinel is a privacy-first security companion for **Bitcoin and Nostr** that helps users investigate suspicious messages, payment requests, URLs, Bitcoin addresses, and Nostr activity.
 
-> Satoshi Sentinel is an investigative assistance tool, not a fraud oracle.
+Instead of simply returning a **“SCAM” or “SAFE”** label, Satoshi Sentinel extracts observable signals, explains why they matter, and helps users understand what they should verify before clicking, sending, or signing.
 
 ---
 
-## 1. Problem
+## 🚨 The Problem
 
-Bitcoin and Nostr both give people direct control — over money, over
-identity — with no intermediary to call when something looks wrong. That
-same lack of intermediation is what scammers exploit: a DM claiming to be
-"official support," a giveaway address, a Nostr event impersonating a
-known identity, a link that looks one character off from a real domain.
-Most victims don't lack caution; they lack a fast way to see *why*
-something feels off before they act.
+Bitcoin and Nostr give users greater control over their money and identity, but that also means users are responsible for making important security decisions themselves.
 
-## 2. Solution
+A suspicious message may contain:
 
-Satoshi Sentinel takes a suspicious message, Bitcoin address, Nostr event,
-or URL, and produces an **explainable** report: what patterns were
-observed, why each one is commonly associated with risk, and what to
-independently verify — never a bare "SCAM" or "SAFE" verdict. Evidence
-(what was found) and interpretation (what it might mean) are always kept
-visibly separate, and every score is a **signal**, not proof.
+* Urgent requests
+* Fake rewards or giveaways
+* Bitcoin payment addresses
+* External links
+* Impersonation attempts
+* Social-engineering language
+* Suspicious transaction details
 
-## 3. Why Bitcoin / Nostr
+Checking each signal manually can be difficult, especially for users who are not familiar with Bitcoin or decentralized systems.
 
-Both ecosystems are pseudonymous and irreversible-by-design — a sent
-transaction or a leaked key cannot be undone. That makes the *moment
-before* acting the only real intervention point, which is exactly where
-Satoshi Sentinel sits. It uses only already-public information (address
-formats, relay-visible events, profile metadata) and never requests a
-seed phrase, private key, or wallet connection.
+Satoshi Sentinel brings these signals together into one explainable security workflow.
 
-## 4. Why AI
+---
 
-A rule engine can detect patterns; it can't naturally *explain* them to
-someone who isn't a security researcher. Satoshi Sentinel's local
-heuristic engine does the detection deterministically (see below), and an
-optional AI layer turns the structured findings into plain language —
-receiving only the already-extracted evidence, never raw user input, and
-never required for the app to function.
+## 🛡️ What Satoshi Sentinel Does
 
-## 5. Privacy architecture
+The core analysis flow is:
 
-- **Never requested, anywhere in the product:** seed phrases, private
-  keys, wallet passwords, or a wallet connection.
-- **A security gate rejects key material before analysis runs at all** —
-  both client-side (`src/utils/detectors/security.js`) and server-side
-  (`backend/app/services/security.py`), independently, so the check holds
-  even if one side is bypassed or the backend is offline. It looks for
-  WIF-formatted keys, labeled hex private keys, and 12/24-word
-  BIP-39-shaped seed phrases (a structural heuristic, not the exact
-  wordlist — deliberately a little over-inclusive, since blocking a false
-  positive is far cheaper than missing a real key).
-- **Data minimization toward AI:** `/api/ai/explain` receives only the
-  already-computed findings (type, severity, title, description, evidence)
-  — never the raw pasted content.
-- **No AI key required to run.** Every analysis and explanation has a
-  fully local, deterministic fallback.
-- **Local-first by default:** the frontend runs the entire signal-
-  extraction engine in-browser and only calls the backend opportunistically
-  (see [Demo instructions](#12-demo-instructions)).
-
-## 6. Features
-
-- Message, Bitcoin address, Nostr event, and URL analysis
-- Deterministic local scoring (0–100) with LOW / MEDIUM / HIGH bands,
-  identical whether computed client-side or server-side
-- Real bech32/bech32m checksum verification for SegWit and Taproot
-  addresses and Nostr npubs (a from-scratch BIP-173/350 implementation —
-  no crypto library, no network)
-- "Explain Before You Sign" — a dedicated interface for breaking down what
-  a transaction actually authorizes before approving it
-- Session-local analysis history
-- Best-effort public Bitcoin (mempool.space) and Nostr (live relay
-  WebSocket query) lookups that degrade gracefully and are never presented
-  as proof of legitimacy
-- Four built-in demo examples, runnable with zero setup
-
-## 7. Architecture
-
-```
-User input
-   │
-   ▼
-Security gate  ── rejects seed phrases / private keys, both client- and server-side
-   │
-   ▼
-Local signal extraction  ── message / address / URL / Nostr detectors
-   │
-   ▼
-Deterministic scoring  ── severity-weighted, no randomness
-   │
-   ├─► Structured findings + extracted data ──► Result page (evidence, always shown)
-   │
-   └─► (optional) AI explanation layer ──► plain-language reading of the SAME
-                                             structured findings (never raw input)
+```text
+Input
+  ↓
+Extract Signals
+  ↓
+Correlate Evidence
+  ↓
+Risk Analysis
+  ↓
+AI Explanation
+  ↓
+Recommended Verification Steps
 ```
 
-The frontend runs this whole pipeline locally. The backend runs the
-*identical* deterministic logic (a line-for-line ported engine) as a
-service, plus the parts that only make sense server-side: SQLite
-persistence, outbound public-data lookups, and API-key custody for the
-optional AI call. The frontend prefers the backend when reachable and
-transparently falls back to its local copy otherwise — see
-`src/hooks/useAnalyze.js`.
+Users can investigate:
 
+* Suspicious messages
+* Bitcoin addresses
+* URLs
+* Payment requests
+* Nostr events
+* Transaction information
+
+The system focuses on explaining the evidence instead of blindly making the decision for the user.
+
+---
+
+## 🔍 Key Features
+
+### Suspicious Message Analysis
+
+Detects patterns such as:
+
+* Urgency
+* Payment requests
+* Reward/giveaway framing
+* External URLs
+* Bitcoin addresses
+* Social-engineering indicators
+* Possible impersonation patterns
+
+### ₿ Bitcoin Address Investigation
+
+Analyze publicly available Bitcoin information before sending funds.
+
+The system is designed around public information and does not require private keys or wallet credentials.
+
+### 🟣 Nostr Investigation
+
+Inspect observable Nostr information such as:
+
+* Public identities
+* Profile metadata
+* Events
+* Public keys
+* Relay-based information
+
+The existence of a Nostr identity is treated as evidence, not automatic proof of legitimacy.
+
+Nostr uses public-key cryptography and relay-based communication, making public identity and event information useful inputs for investigation.
+
+### ✍️ Explain Before You Sign
+
+A dedicated interface for understanding Bitcoin transaction information before authorization.
+
+It can be designed to explain:
+
+* Inputs
+* Outputs
+* Destination
+* Amount
+* Fees
+* Change
+* Suspicious characteristics
+* What the transaction is actually doing
+
+**Satoshi Sentinel never asks for your seed phrase or private key and does not perform wallet signing.**
+
+---
+
+## 🧠 Explainable AI
+
+Satoshi Sentinel does not rely entirely on an LLM to decide whether something is dangerous.
+
+The architecture separates:
+
+```text
+Deterministic Signal Extraction
+            ↓
+      Structured Evidence
+            ↓
+       Risk Analysis
+            ↓
+       AI Explanation
 ```
-frontend (React/Vite)  ──HTTP──►  backend (FastAPI)
-        │                              │
-        └── local engine (always) ◄────┘ (preferred when reachable)
+
+This allows the system to identify concrete signals first and use AI primarily to explain those findings in human-readable language.
+
+The risk score is an **indicator of observed signals, not proof of fraud**.
+
+---
+
+## 🔐 Privacy First
+
+Security tools should not require users to surrender their most sensitive information.
+
+Satoshi Sentinel follows strict privacy boundaries:
+
+* ❌ No seed phrases
+* ❌ No private keys
+* ❌ No wallet passwords
+* ❌ No custodial wallet
+* ❌ No transaction signing
+* ✅ Public Bitcoin information
+* ✅ Public Nostr information
+* ✅ User-provided content
+* ✅ Server-side API key handling
+
+Sensitive information should never be submitted to the application for analysis.
+
+---
+
+## 📊 Risk Analysis
+
+Satoshi Sentinel uses observable signals to calculate an analysis score.
+
+| Score  | Level  |
+| ------ | ------ |
+| 0–29   | LOW    |
+| 30–54  | MEDIUM |
+| 55–100 | HIGH   |
+
+Examples of higher-risk signals include:
+
+* Requests for private keys or seed phrases
+* Suspicious payment requests
+* Verified malicious indicators
+
+Other signals may include:
+
+* Urgency
+* External links
+* Reward framing
+* Unusual payment context
+* Impersonation patterns
+
+The score should be treated as an investigative aid rather than a definitive fraud verdict.
+
+---
+
+## 🏗️ Architecture
+
+```text
+                 ┌─────────────────────┐
+                 │       Frontend      │
+                 │   React + Vite      │
+                 └──────────┬──────────┘
+                            │
+                            ▼
+                 ┌─────────────────────┐
+                 │    Analysis API     │
+                 │   FastAPI / Python  │
+                 └──────────┬──────────┘
+                            │
+             ┌──────────────┼──────────────┐
+             ▼              ▼              ▼
+       ┌──────────┐   ┌──────────┐   ┌──────────┐
+       │ Bitcoin  │   │  Nostr   │   │  Signal  │
+       │   Data   │   │   Data   │   │  Engine  │
+       └──────────┘   └──────────┘   └────┬─────┘
+                                          │
+                                          ▼
+                                ┌─────────────────┐
+                                │  AI Explanation │
+                                └─────────────────┘
 ```
 
-## 8. Tech stack
+---
 
-**Frontend:** React, Vite, plain CSS (design tokens, no UI framework),
-`react-router-dom`, `lucide-react`.
-
-**Backend:** Python 3, FastAPI, Pydantic, `httpx` (outbound HTTP),
-`websockets` (Nostr relay client), SQLite via the stdlib `sqlite3` module
-(no ORM).
-
-**AI:** provider-agnostic — `backend/app/services/ai_explain.py` calls out
-only if `AI_EXPLAIN_ENABLED=true` and `ANTHROPIC_API_KEY` is set; any
-failure falls back to the local deterministic template.
-
-## 9. Installation
-
-```
-satoshi-sentinel/
-├── src/                  frontend source (see below)
-├── backend/              FastAPI backend
-├── package.json
-└── .env.example          frontend env
-```
+## 🛠️ Tech Stack
 
 ### Frontend
 
+* React.js
+* Vite
+* JavaScript
+* CSS
+* Lucide React
+
+### Backend
+
+* Python
+* FastAPI
+
+### Data & Protocols
+
+* Bitcoin public APIs
+* Nostr protocol
+* WebSockets
+* SQLite
+
+### AI
+
+* AI / LLM integration
+* Deterministic local analysis fallback
+
+---
+
+## 📁 Project Structure
+
+```text
+satoshi-sentinel/
+│
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── services/
+│   │   ├── hooks/
+│   │   ├── utils/
+│   │   ├── data/
+│   │   └── styles/
+│   ├── public/
+│   └── package.json
+│
+├── backend/
+│   ├── main.py
+│   ├── requirements.txt
+│   └── ...
+│
+├── .gitignore
+└── README.md
+```
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the repository
+
 ```bash
+git clone https://github.com/YOUR_USERNAME/satoshi-sentinel.git
+cd satoshi-sentinel
+```
+
+### 2. Frontend
+
+```bash
+cd frontend
 npm install
 npm run dev
 ```
 
-Opens at `http://localhost:5173` by default.
+Frontend:
 
-### Backend
+```text
+http://localhost:5173
+```
+
+### 3. Backend
+
+Open another terminal:
 
 ```bash
 cd backend
-python3 -m venv .venv && source .venv/bin/activate   # optional but recommended
-pip install -r requirements.txt
-cp .env.example .env      # defaults work as-is for local dev
-uvicorn app.main:app --reload --port 8000
+python -m venv venv
 ```
 
-Interactive API docs are then at `http://localhost:8000/docs`.
+Windows:
 
-The frontend works fully **without** the backend running — see
-[Demo instructions](#12-demo-instructions).
+```bash
+venv\Scripts\activate
+```
 
-## 10. Environment variables
+Install dependencies:
 
-**Frontend (`.env.example`):**
+```bash
+pip install -r requirements.txt
+```
 
-| Variable | Purpose |
-|---|---|
-| `VITE_API_BASE_URL` | Backend URL. Defaults to `http://localhost:8000` if unset. |
+Run the backend:
 
-**Backend (`backend/.env.example`):**
+```bash
+uvicorn main:app --reload
+```
 
-| Variable | Purpose |
-|---|---|
-| `APP_ENV`, `HOST`, `PORT` | Basic server config. |
-| `CORS_ORIGINS` | Comma-separated origins allowed to call the API. |
-| `DATABASE_URL` | SQLite by default; swap later without touching endpoint code. |
-| `BITCOIN_API_BASE_URL`, `BITCOIN_LOOKUP_TIMEOUT_SECONDS` | Public block-explorer lookups (mempool.space by default, no key needed). |
-| `NOSTR_RELAYS`, `NOSTR_LOOKUP_TIMEOUT_SECONDS` | Public relays queried read-only for profile lookups. |
-| `ANTHROPIC_API_KEY`, `AI_EXPLAIN_ENABLED` | **Optional.** Leave blank/false to run entirely on the local explanation template. |
+Backend:
 
-No API key is ever required for the app to run or demo fully.
+```text
+http://localhost:8000
+```
 
-## 11. API endpoints
+API documentation:
 
-All under `/api`. Full interactive docs at `/docs` once the server is running.
-
-| Method | Path | Purpose |
-|---|---|---|
-| GET | `/api/health` | Liveness check. |
-| POST | `/api/analyze` | Analyze `{ type, content }` — `type` is `message`\|`address`\|`nostr`\|`url`. |
-| POST | `/api/analyze/message` | Same engine, message-typed convenience route. |
-| POST | `/api/analyze/address` | Same engine, address-typed convenience route. |
-| POST | `/api/analyze/nostr` | Same engine, Nostr-typed convenience route. |
-| POST | `/api/ai/explain` | Plain-language reading of an already-computed `{ input_type, local_score, findings }`. |
-| GET | `/api/bitcoin/address/{address}` | Structural classification + best-effort public balance/tx-count data. |
-| GET | `/api/bitcoin/transaction/{txid}` | Best-effort public transaction data. |
-| GET | `/api/nostr/profile/{pubkey}` | Live relay query (hex pubkey or npub) for a kind:0 profile event. |
-
-Every analyze endpoint runs the security gate first and returns `400` with
-a clear, non-echoing message if the input looks like key material.
-`backend/scripts/smoke_test.sh` exercises all 11 routes end to end.
-
-## 12. Demo instructions
-
-**Zero-setup path:** run only the frontend (`npm install && npm run dev`).
-The Analyze page's demo panel loads four built-in examples (fake giveaway,
-suspicious Nostr message, seed-phrase phishing, and a normal transaction
-discussion) that run through the full local engine with no backend and no
-API key. The top bar shows "Local demo mode" honestly whenever the backend
-isn't reachable — this is the intended, fully-functional hackathon-demo
-state, not a degraded one.
-
-**Full-stack path:** also run the backend (see Installation). The status
-indicator flips to "Backend connected," analysis is persisted to SQLite,
-and the same requests hit `/api/bitcoin/*` and `/api/nostr/*` for
-best-effort public data.
-
-## 13. Security considerations
-
-1. Seed phrases, private keys, and wallet passwords are never requested,
-   and are actively rejected if submitted (client- and server-side).
-2. No custodial wallet functionality exists or is planned.
-3. API keys (AI, if configured) live only in backend environment
-   variables — the frontend never sees them.
-4. All backend request bodies are validated via Pydantic models.
-5. A Nostr pubkey or profile existing is presented as observable evidence
-   only — never as proof of a legitimate identity.
-6. A risk score is a heuristic signal, never proof of fraud; this is
-   stated in-product, not just in this document.
-7. Public API/relay calls run with strict timeouts and fail closed
-   (`available: false` + reason) rather than raising into the response.
-8. CORS is restricted to explicit configured origins in
-   `backend/app/core/config.py` (not a wildcard).
-9. Use HTTPS in any real deployment; rate limiting is a noted item in the
-   roadmap below, not yet implemented.
-
-## 14. Future roadmap
-
-- Base58check checksum verification for legacy addresses (currently
-  structural/charset-only, clearly labeled as such)
-- Real secp256k1 Schnorr signature verification for Nostr events
-  (currently: presence of `sig` is checked, not validity)
-- On-chain transaction-graph correlation ("Transaction signals" section is
-  currently a placeholder)
-- Rate limiting and auth for a multi-user deployment
-- Persistent, cross-session history (currently per-browser-session on the
-  frontend; SQLite-backed on the backend but not yet surfaced via a
-  history endpoint)
-- PostgreSQL swap for `DATABASE_URL` at scale
+```text
+http://localhost:8000/docs
+```
 
 ---
 
-Questions or issues while running this locally? Check
-`backend/scripts/smoke_test.sh` first — it's the fastest way to confirm
-the backend itself is healthy independent of the frontend.
+## ⚙️ Environment Variables
+
+Create a `.env` file for local configuration.
+
+Example:
+
+```env
+VITE_API_URL=http://localhost:8000
+
+AI_API_KEY=
+AI_MODEL=
+
+BITCOIN_API_URL=
+NOSTR_RELAY_URL=
+
+DATABASE_URL=sqlite:///./satoshi_sentinel.db
+```
+
+Never commit real API keys or secrets.
+
+---
+
+## 🧪 Demo Mode
+
+Satoshi Sentinel is designed to remain demonstrable even without an external AI API key.
+
+A deterministic local analysis engine can identify common suspicious signals and provide a basic analysis flow without depending entirely on an external AI service.
+
+Example input:
+
+```text
+URGENT! Your account has been selected for a
+0.05 BTC reward. Send the verification fee to
+[Bitcoin address] and claim your reward at
+[external URL].
+```
+
+Possible detected signals:
+
+```text
+✓ Urgency
+✓ Bitcoin payment request
+✓ External URL
+✓ Reward/giveaway framing
+✓ Bitcoin address
+```
+
+The application then explains why these signals deserve attention.
+
+---
+
+## 🔒 Security Principles
+
+Satoshi Sentinel follows several core principles:
+
+1. **Never request secrets**
+2. **Separate evidence from AI interpretation**
+3. **Use public information wherever possible**
+4. **Do not blindly trust decentralized identities**
+5. **Do not perform wallet signing**
+6. **Keep API credentials server-side**
+7. **Treat risk scores as indicators, not proof**
+
+---
+
+## 🗺️ Future Development
+
+Planned improvements include:
+
+* Expanded Bitcoin transaction analysis
+* More Bitcoin data sources
+* Nostr relay integration
+* Nostr profile and event correlation
+* Stronger deterministic security rules
+* Improved evidence correlation
+* More detailed transaction explanations
+* Additional phishing and impersonation detection
+* Production-grade rate limiting and security controls
+
+---
+
+## 🎯 Why Satoshi Sentinel?
+
+Satoshi Sentinel is built around a simple idea:
+
+> **Security tools should help users understand what they are trusting, not simply tell them what to trust.**
+
+Bitcoin and Nostr are built around user control. Satoshi Sentinel extends that principle to security by making suspicious activity more understandable and evidence-driven.
+
+---
+
+## 👤 Built By
+
+**Sreshtha Das**
+
+Built independently as a solo project focused on:
+
+* Bitcoin security
+* Nostr
+* Privacy
+* Explainable AI
+* Cybersecurity
+* User-controlled technology
+
+---
+
+## ⚠️ Disclaimer
+
+Satoshi Sentinel is an **investigative assistance tool**, not a fraud oracle.
+
+A risk score or AI-generated explanation does not guarantee that an address, message, identity, website, or transaction is malicious or legitimate.
+
+Always independently verify important information before sending funds, clicking suspicious links, or authorizing transactions.
+
+---
+
+### ₿ Bitcoin × Nostr × AI × Privacy
+
+**Know what you're signing. Know who you're trusting.**
