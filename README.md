@@ -2,257 +2,130 @@
 
 ### Know what you're signing. Know who you're trusting.
 
-Satoshi Sentinel is a **privacy-first, explainable security companion for the Bitcoin and Nostr ecosystem**.
+**Satoshi Sentinel** is a privacy-first, explainable security companion for the **Bitcoin + Nostr ecosystem**.
 
-It helps users analyze Bitcoin-related information, Nostr identities and events, suspicious URLs, payment requests, and social-engineering messages by combining multiple security signals and presenting them in a human-readable way.
+It helps users analyze Bitcoin addresses, payment requests, Nostr identities and events, suspicious URLs, and social-engineering messages by combining security signals and presenting the findings in a human-readable way.
 
-Instead of reducing every situation to a simple **SAFE / SCAM** verdict, Satoshi Sentinel focuses on **evidence, signals, context, and explanations**.
-
-The goal is simple:
+Instead of reducing everything to a simple **SAFE / SCAM** label, Satoshi Sentinel focuses on **evidence, context, signals, and explanations**.
 
 > **Understand the risk before you trust, sign, click, or pay.**
 
 ---
 
-# ✨ Features
+## ✨ Features
 
-## 🔎 Multi-Input Analysis
-
-Satoshi Sentinel is designed to analyze different types of security-sensitive inputs from a single interface.
-
-Supported analysis categories include:
-
-* ₿ Bitcoin addresses
-* 💸 Bitcoin payment requests
-* 🟣 Nostr identities
-* 📝 Nostr events and messages
-* 🔗 Suspicious URLs
-* 💬 Social-engineering messages
-* 🔐 Transaction-related information
-
-Each input can contain different types of security signals, so the analysis process is designed to look beyond a single indicator.
+* 🔎 **Multi-input security analysis**
+* ₿ **Bitcoin address and payment analysis**
+* 🟣 **Nostr identity, event, and message analysis**
+* 🔗 **Suspicious URL analysis**
+* 💬 **Social-engineering detection**
+* 🧠 **AI-assisted security analysis**
+* 📊 **Explainable risk assessment**
+* 🧾 **Evidence-based analysis**
+* ✍️ **Explain Before You Sign**
+* 📜 **Analysis history**
+* 🔐 **Privacy-focused design**
+* ⚙️ **Privacy and application settings**
+* 📱 **Responsive interface**
 
 ---
 
-# ₿ Bitcoin Security
+## 🧠 Explainable Risk Analysis
 
-Bitcoin transactions are generally irreversible, which makes verifying information before sending funds especially important.
+Satoshi Sentinel is designed to show **why something may be suspicious**, rather than simply returning a binary verdict.
 
-Satoshi Sentinel can be used to inspect Bitcoin-related information and surface potentially relevant signals.
+The analysis can consider signals such as:
 
-The analysis can consider:
+```text
+Identity
+Transaction
+URL
+Behavior
+Social Engineering
+Context
+```
+
+These signals are correlated with available evidence and then presented through an understandable explanation.
+
+```text
+User Input
+    ↓
+Signal Extraction
+    ↓
+Evidence Correlation
+    ↓
+AI Analysis
+    ↓
+Risk Explanation
+    ↓
+User Decision
+```
+
+The final decision always remains with the user.
+
+---
+
+## ₿ Bitcoin Analysis
+
+Satoshi Sentinel can analyze Bitcoin-related information such as:
 
 * Bitcoin addresses
-* Payment information
-* Transaction-related data
+* Payment requests
+* Transaction-related information
 * Suspicious payment instructions
-* Address-related signals
 * Context surrounding a payment request
 
-The objective is not to tell the user what decision to make, but to provide additional context before they proceed.
+The goal is to provide additional information before users send funds or approve an action.
 
 ---
 
-# 🟣 Nostr Security
+## 🟣 Nostr Analysis
 
-Nostr provides decentralized identity and communication, but users may still encounter impersonation, misleading identities, suspicious messages, or unfamiliar public keys.
+The project is designed to analyze:
 
-Satoshi Sentinel is designed to analyze:
-
-* Nostr public keys
-* Identities
+* Nostr identities
+* Public keys
 * Events
 * Messages
 * Identity-related signals
 * Suspicious activity patterns
-* Context surrounding interactions
 
-This allows users to investigate unfamiliar Nostr information before trusting or interacting with it.
+This can help users investigate unfamiliar Nostr information before interacting with it.
 
 ---
 
-# 🔗 URL Analysis
+## 🔗 URL & Social Engineering Analysis
 
-Links are commonly used in phishing and social-engineering attacks.
+Satoshi Sentinel can examine suspicious links and messages for security-relevant patterns.
 
-Satoshi Sentinel can analyze suspicious URLs and surface signals that may deserve additional attention.
+Possible signals include:
 
-Potential signals can include:
-
-* URL structure
+* Suspicious URL structures
 * Domain-related indicators
-* Suspicious patterns
-* Context of the URL
-* Social-engineering context
-
-The result is presented as an explanation rather than a simple binary classification.
-
----
-
-# 💬 Social Engineering Analysis
-
-Technical indicators are not always enough.
-
-A message can be suspicious because of the way it tries to influence a user.
-
-Satoshi Sentinel can analyze messages for patterns such as:
-
 * Urgency
-* Pressure
 * Impersonation
-* Suspicious payment requests
+* Pressure to act
 * Requests for sensitive information
+* Suspicious payment instructions
 * Manipulative language
-* Unusual instructions
-* Trust exploitation
 
-The system combines these signals with other available evidence to produce a broader explanation.
-
----
-
-# 🧠 Explainable Risk Analysis
-
-One of the core ideas behind Satoshi Sentinel is **explainability**.
-
-Instead of displaying:
-
-```text
-SCAM
-```
-
-the application is designed to provide information such as:
-
-```text
-Risk Signals
-├── Identity Signal
-├── Transaction Signal
-├── URL Signal
-├── Behavioral Signal
-└── Social Engineering Signal
-
-Evidence
-├── Observed indicator
-├── Related context
-└── Supporting information
-
-Analysis
-└── Human-readable explanation
-```
-
-This gives users more context about **why an input may deserve caution**.
-
----
-
-# 🔄 Analysis Pipeline
-
-Satoshi Sentinel follows an evidence-oriented analysis pipeline.
-
-```text
-┌──────────────────────┐
-│      User Input      │
-└──────────┬───────────┘
-           │
-           ▼
-┌──────────────────────┐
-│   Signal Extraction  │
-└──────────┬───────────┘
-           │
-           ▼
-┌──────────────────────┐
-│ Evidence Correlation │
-└──────────┬───────────┘
-           │
-           ▼
-┌──────────────────────┐
-│    AI Analysis       │
-└──────────┬───────────┘
-           │
-           ▼
-┌──────────────────────┐
-│ Risk Explanation     │
-└──────────┬───────────┘
-           │
-           ▼
-┌──────────────────────┐
-│   User Decision      │
-└──────────────────────┘
-```
-
-The final decision remains with the user.
-
----
-
-# 🎯 Core Principles
-
-## Explain
-
-Show users the signals and reasoning behind an analysis.
-
-## Correlate
-
-Combine multiple pieces of evidence instead of depending on a single indicator.
-
-## Verify
-
-Encourage users to inspect important information before acting.
-
-## Empower
-
-Give users context that helps them make their own decisions.
-
-## Protect
-
-Keep privacy and responsible data handling central to the product design.
+These signals are considered alongside other available evidence.
 
 ---
 
 # 🖥️ Application
 
-The current application is organized around several major interfaces.
+### 🏠 Dashboard
 
----
+Central entry point providing access to analysis, recent activity, quick actions, history, and settings.
 
-## 🏠 Dashboard
+### 🔍 Analyze
 
-The dashboard acts as the central entry point to Satoshi Sentinel.
+Allows users to submit addresses, URLs, messages, Nostr information, payment requests, and other suspicious content.
 
-It provides access to:
+### 📊 Analysis Result
 
-* Security analysis
-* Recent analysis activity
-* Quick actions
-* Explain Before You Sign
-* History
-* Settings
-
-The dashboard is designed to give users a quick overview without requiring them to navigate through multiple pages before starting an analysis.
-
----
-
-# 🔍 Analyze
-
-The Analyze page is the primary interface for submitting information.
-
-Users can provide security-relevant information such as:
-
-* Bitcoin addresses
-* URLs
-* Messages
-* Nostr-related information
-* Payment requests
-* Other suspicious content
-
-The input is then passed through the analysis flow.
-
----
-
-# 📊 Analysis Result
-
-The Analysis Result interface presents the output of the analysis.
-
-The interface is designed around understandable security information rather than a single classification.
-
-It can present:
+Displays:
 
 * Risk level
 * Detected signals
@@ -261,153 +134,114 @@ It can present:
 * Relevant warnings
 * Additional context
 
-The objective is to help users understand the result rather than simply display a label.
+### ✍️ Explain Before You Sign
 
----
-
-# ✍️ Explain Before You Sign
-
-**Explain Before You Sign** is designed around the moment immediately before a user approves or signs an action.
-
-Instead of encouraging users to blindly approve a request, the feature focuses on questions such as:
+Helps users understand what they are about to approve or sign by focusing on:
 
 ```text
-What am I signing?
+WHO?
+What identity is requesting this?
 
-Who is requesting it?
+WHAT?
+What action or information is involved?
 
-What information is involved?
+WHY?
+What is the stated reason?
 
-Are there unusual signals?
+SIGNALS?
+What unusual indicators were detected?
 
-What should I verify before continuing?
+EVIDENCE?
+What supports those indicators?
+
+VERIFY?
+What should be independently checked?
 ```
 
-This creates a security checkpoint before an irreversible or important action.
+### 📜 History
 
----
+Allows users to review previous analyses and detected signals.
 
-# 📜 History
+### ⚙️ Settings
 
-The History page allows users to review previous analyses.
-
-Historical information can help users:
-
-* Revisit previous investigations
-* Compare previous analysis results
-* Review detected signals
-* Keep track of suspicious inputs
-* Return to an earlier analysis
-
----
-
-# ⚙️ Settings
-
-The Settings section provides application configuration and privacy-related controls.
-
-The interface is designed to keep privacy considerations visible instead of hiding them behind the application.
+Provides application configuration and privacy-related controls.
 
 ---
 
 # 🔐 Privacy
 
-Privacy is a central design principle of Satoshi Sentinel.
+Privacy is a core design principle of Satoshi Sentinel.
 
-The project aims to avoid unnecessary exposure of user information while providing useful security analysis.
-
-Key principles include:
+The project focuses on:
 
 * Minimal unnecessary data collection
 * Transparent analysis
 * User-controlled interaction
 * Explainable results
-* Clear separation between evidence and AI-generated interpretation
-* Privacy-focused application design
+* Clear separation between evidence and AI interpretation
+* Privacy-conscious application design
 
 ---
 
 # 🏗️ Architecture
 
-Satoshi Sentinel is divided into a frontend application and backend services.
-
 ```text
                          SATOSHI SENTINEL
-                               │
-                ┌──────────────┴──────────────┐
-                │                             │
-                ▼                             ▼
-          React Frontend                FastAPI Backend
-                │                             │
-        ┌───────┼────────┐            ┌───────┼────────┐
-        │       │        │            │       │        │
-        ▼       ▼        ▼            ▼       ▼        ▼
-     Dashboard Analyze History     API Layer Analysis AI
-        │       │        │            │       │        │
-        └───────┼────────┘            └───────┼────────┘
-                │                             │
-                └──────────────┬──────────────┘
-                               │
-                               ▼
+                                │
+                ┌───────────────┴───────────────┐
+                │                               │
+                ▼                               ▼
+         React Frontend                  FastAPI Backend
+                │                               │
+        ┌───────┼────────┐              ┌───────┼────────┐
+        │       │        │              │       │        │
+        ▼       ▼        ▼              ▼       ▼        ▼
+    Dashboard Analyze  History       API     Analysis    AI
+        │       │        │              │       │        │
+        └───────┼────────┘              └───────┼────────┘
+                │                               │
+                └───────────────┬───────────────┘
+                                │
+                                ▼
                        Security Signals
-                               │
-                               ▼
+                                │
+                                ▼
                      Evidence + Explanation
 ```
 
 ---
 
-# 💻 Technology Stack
+# 💻 Tech Stack
 
-## Frontend
-
-| Technology | Purpose                          |
-| ---------- | -------------------------------- |
-| React      | User interface                   |
-| Vite       | Development and build tooling    |
-| JavaScript | Application logic                |
-| CSS        | Styling and responsive interface |
-| Lucide     | Interface icons                  |
-
----
-
-## Backend
-
-| Technology | Purpose             |
-| ---------- | ------------------- |
-| Python     | Backend development |
-| FastAPI    | API framework       |
-| Uvicorn    | Development server  |
+| Technology | Purpose                                |
+| ---------- | -------------------------------------- |
+| React      | Frontend interface                     |
+| Vite       | Frontend tooling                       |
+| JavaScript | Application logic                      |
+| CSS        | Styling and responsive UI              |
+| Lucide     | Interface icons                        |
+| Python     | Backend                                |
+| FastAPI    | API framework                          |
+| Uvicorn    | Backend server                         |
+| AI         | Signal interpretation and explanations |
 
 ---
 
-## AI
-
-AI-assisted analysis is used to interpret extracted signals and generate human-readable explanations.
-
-The AI layer is intended to work with structured security information rather than replacing the underlying evidence.
-
----
-
-# 📁 Complete Project Structure
+# 📁 Project Structure
 
 ```text
 Satoshi-Sentinel/
 │
 ├── .github/
-│   │
 │   └── workflows/
-│       │
 │       └── deploy.yml
 │
 ├── frontend/
-│   │
 │   ├── public/
-│   │   │
 │   │   ├── favicon.svg
-│   │   └── ...
+│   │   └── logo.svg
 │   │
 │   ├── src/
-│   │   │
 │   │   ├── assets/
 │   │   │   ├── logo.svg
 │   │   │   └── icons/
@@ -449,11 +283,8 @@ Satoshi-Sentinel/
 │   └── index.html
 │
 ├── backend/
-│   │
 │   ├── app/
-│   │   │
 │   │   ├── __init__.py
-│   │   │
 │   │   ├── main.py
 │   │   │
 │   │   ├── api/
@@ -483,47 +314,31 @@ Satoshi-Sentinel/
 │
 ├── .gitignore
 ├── LICENSE
-├── README.md
-└── CONTRIBUTING.md
+├── CONTRIBUTING.md
+└── README.md
 ```
-
-> The structure above represents the intended organization of the application as the frontend and backend modules are developed. Individual files may change as implementation progresses.
 
 ---
 
-# 🔌 Backend API Concept
-
-The backend provides a layer between the frontend and analysis services.
-
-A typical request follows this pattern:
+# 🔄 Analysis Flow
 
 ```text
-Frontend
-   │
-   │ POST /analyze
-   ▼
-FastAPI
-   │
-   ▼
-Input Validation
-   │
-   ▼
+Input
+  ↓
+Validation
+  ↓
 Signal Extraction
-   │
-   ▼
+  ↓
 Evidence Correlation
-   │
-   ▼
+  ↓
 AI Analysis
-   │
-   ▼
+  ↓
 Structured Result
-   │
-   ▼
-Frontend
+  ↓
+Human-readable Explanation
 ```
 
-A structured response can contain information such as:
+A result can contain information such as:
 
 ```json
 {
@@ -543,275 +358,65 @@ A structured response can contain information such as:
 }
 ```
 
-The exact API response structure may evolve as the backend implementation develops.
+The exact API structure may evolve as development continues.
 
 ---
 
-# 🧩 Analysis Model
+# 🧩 Security Model
 
-Satoshi Sentinel separates analysis into multiple layers.
-
-## 1. Input
-
-Raw information submitted by the user.
-
-```text
-Address
-URL
-Message
-Nostr Event
-Payment Request
-```
-
-## 2. Signals
-
-Relevant indicators extracted from the input.
-
-```text
-Identity
-Transaction
-URL
-Behavior
-Social Engineering
-Context
-```
-
-## 3. Evidence
-
-Information supporting individual signals.
-
-```text
-Observed data
-External information
-Related context
-Historical information
-```
-
-## 4. Correlation
-
-Signals are considered together rather than independently.
-
-```text
-Signal A
-   +
-Signal B
-   +
-Signal C
-   ↓
-Combined Context
-```
-
-## 5. Explanation
-
-The resulting information is converted into a human-readable explanation.
-
----
-
-# 🧪 Example Analysis Flow
-
-Consider a hypothetical message:
-
-```text
-"URGENT! Your Bitcoin account has been compromised.
-Send your BTC to this address immediately to secure your funds."
-```
-
-The system could identify signals such as:
-
-```text
-Social Engineering
-├── Urgency
-├── Fear-based messaging
-└── Immediate payment request
-
-Transaction
-└── Bitcoin address included
-
-Behavior
-└── Pressure to act without verification
-```
-
-Instead of simply returning:
-
-```text
-SCAM
-```
-
-the interface can explain why these signals deserve attention.
-
----
-
-# 🛡️ Security Philosophy
-
-Satoshi Sentinel follows a **defense-in-depth** approach.
-
-A single signal should not automatically determine the complete analysis.
+Satoshi Sentinel does not treat a single unfamiliar signal as automatically malicious.
 
 For example:
 
 ```text
 Unknown Identity
-       │
-       ├── Not automatically malicious
-       │
-       ▼
+       ↓
 Additional Evidence
-       │
-       ├── Message context
-       ├── URL information
-       ├── Transaction information
-       └── Behavioral signals
-       │
-       ▼
+       ↓
+Message Context
+       +
+URL Information
+       +
+Transaction Information
+       +
+Behavioral Signals
+       ↓
 Combined Analysis
 ```
 
-This helps avoid treating unfamiliar information as automatically malicious.
+This allows the application to consider multiple signals together.
 
 ---
 
-# 📊 Risk Representation
+# 🚀 Getting Started
 
-Satoshi Sentinel is designed to communicate risk using multiple dimensions.
+## Prerequisites
 
-Possible categories include:
+* Node.js
+* npm
+* Python 3.10+
 
-```text
-LOW
-MEDIUM
-HIGH
-```
-
-However, the risk level is only one part of the analysis.
-
-The interface can also expose:
-
-* Signal severity
-* Supporting evidence
-* Confidence/context
-* Explanation
-* Recommended verification steps
-
-The purpose is to provide context rather than create a false sense of certainty.
-
----
-
-# 🔐 Explain Before You Sign
-
-The **Explain Before You Sign** workflow is one of the core concepts of the project.
-
-Before signing or approving something important, the user should be able to inspect:
-
-```text
-WHO?
-What identity is requesting this?
-
-WHAT?
-What action or information is involved?
-
-WHY?
-What is the stated reason?
-
-SIGNALS?
-What unusual indicators were detected?
-
-EVIDENCE?
-What information supports those indicators?
-
-VERIFY?
-What should the user independently check?
-```
-
-This creates a security-oriented pause before an important action.
-
----
-
-# 🧠 AI + Evidence
-
-AI is used as an **analysis and explanation layer**.
-
-The architecture separates:
-
-```text
-Evidence
-   ↓
-Signals
-   ↓
-Analysis
-   ↓
-Explanation
-```
-
-This distinction is important because an AI-generated explanation should not be treated as independent proof.
-
-The application is designed to make the underlying signals and evidence visible wherever possible.
-
----
-
-# 🌐 Bitcoin + Nostr
-
-Satoshi Sentinel combines two important parts of the decentralized ecosystem:
-
-```text
-Bitcoin
-   │
-   ├── Addresses
-   ├── Payments
-   └── Transactions
-       
-Nostr
-   │
-   ├── Identities
-   ├── Public Keys
-   ├── Events
-   └── Messages
-```
-
-The combination allows the project to examine security situations where identity, communication, and payments can intersect.
-
----
-
-# 🚀 Installation
-
-## 1. Clone the repository
+## Clone
 
 ```bash
 git clone https://github.com/sreshtha1804-code/Satoshi-Sentinel.git
 cd Satoshi-Sentinel
 ```
 
----
-
-## 2. Install frontend dependencies
+## Frontend
 
 ```bash
 cd frontend
 npm install
-```
-
----
-
-## 3. Start the frontend
-
-```bash
 npm run dev
 ```
 
-The frontend will start through the Vite development server.
+## Backend
 
----
-
-## 4. Set up the backend
-
-Open a new terminal:
+Open another terminal:
 
 ```bash
 cd Satoshi-Sentinel/backend
-```
-
-Create a virtual environment:
-
-```bash
 python -m venv venv
 ```
 
@@ -827,43 +432,29 @@ venv\Scripts\activate
 source venv/bin/activate
 ```
 
-Install backend dependencies:
+Install dependencies:
 
 ```bash
 pip install -r requirements.txt
 ```
 
----
-
-## 5. Start FastAPI
+Run FastAPI:
 
 ```bash
 uvicorn main:app --reload
 ```
 
-The backend will run locally through Uvicorn.
-
 ---
 
 # 🔧 Environment Variables
 
-Create a `.env` file inside the backend directory when required.
-
-Example:
+Create a `.env` file when required:
 
 ```env
 AI_API_KEY=your_api_key
 BITCOIN_API_URL=your_api_url
 NOSTR_RELAY_URL=your_relay_url
 ```
-
-Do not commit actual API keys or secrets to GitHub.
-
-The repository should contain `.env.example` instead.
-
----
-
-# 🔒 Environment Security
 
 Never commit:
 
@@ -872,65 +463,61 @@ Never commit:
 API keys
 Private keys
 Wallet seed phrases
-Authentication tokens
 Passwords
-Secret credentials
+Authentication tokens
 ```
 
-Use environment variables for sensitive configuration.
+Use `.env.example` for configuration templates.
 
 ---
 
 # 📈 Development Status
 
-Satoshi Sentinel is currently under active development.
+### Completed
 
-### Current
-
-* React + Vite frontend
-* Dashboard
-* Analyze interface
-* Analysis result interface
-* Explain Before You Sign interface
-* History
-* Settings/privacy interface
-* FastAPI backend foundation
-* Security-analysis architecture
-* AI-assisted analysis concept
+* [x] React + Vite frontend
+* [x] Dashboard
+* [x] Analyze interface
+* [x] Analysis Result interface
+* [x] Explain Before You Sign
+* [x] History
+* [x] Settings / Privacy
+* [x] FastAPI backend foundation
+* [x] Core analysis architecture
 
 ### In Development
 
-* Bitcoin intelligence integration
-* Nostr intelligence integration
-* URL analysis
-* Expanded evidence correlation
-* More security signals
-* Backend/frontend integration
-* More detailed analysis explanations
+* [ ] Bitcoin intelligence integration
+* [ ] Nostr intelligence integration
+* [ ] URL intelligence
+* [ ] Social-engineering analysis
+* [ ] Advanced evidence correlation
+* [ ] Expanded security signals
+* [ ] Frontend/backend integration
 
 ---
 
 # 🛣️ Roadmap
 
-## Phase 1 — Interface
+### Phase 1 — Interface
 
 * [x] Dashboard
-* [x] Analyze page
-* [x] Analysis result page
+* [x] Analyze
+* [x] Analysis Result
 * [x] Explain Before You Sign
 * [x] History
 * [x] Settings
-* [x] Responsive interface
+* [x] Responsive UI
 
-## Phase 2 — Backend
+### Phase 2 — Backend
 
 * [x] FastAPI foundation
 * [ ] Analysis endpoints
 * [ ] Input validation
-* [ ] Structured analysis responses
+* [ ] Structured responses
 * [ ] Frontend/backend integration
 
-## Phase 3 — Intelligence
+### Phase 3 — Intelligence
 
 * [ ] Bitcoin address intelligence
 * [ ] Bitcoin transaction analysis
@@ -939,169 +526,37 @@ Satoshi Sentinel is currently under active development.
 * [ ] URL intelligence
 * [ ] Social-engineering analysis
 
-## Phase 4 — Correlation
+### Phase 4 — Correlation
 
 * [ ] Multi-signal correlation
 * [ ] Evidence aggregation
 * [ ] Context-aware analysis
-* [ ] Improved risk explanations
-* [ ] Confidence/context indicators
-
-## Phase 5 — Expansion
-
-* [ ] More decentralized ecosystem integrations
-* [ ] Additional security signals
-* [ ] Improved explainability
-* [ ] Extended analysis history
-* [ ] More verification workflows
+* [ ] Improved explanations
+* [ ] Verification guidance
 
 ---
 
-# 🎯 Design Goals
+# 🎯 Design Principles
 
-Satoshi Sentinel is built around several design goals.
+### Explain
 
-### Human-readable
+Show users **why** something may be suspicious.
 
-Security information should be understandable without requiring deep blockchain expertise.
+### Correlate
 
-### Evidence-oriented
+Combine multiple signals instead of relying on one indicator.
 
-Important conclusions should be connected to observable signals and supporting information.
+### Verify
 
-### Privacy-conscious
+Encourage independent verification before important actions.
 
-Security analysis should minimize unnecessary exposure of user information.
+### Empower
 
-### Explainable
+Provide information while leaving the final decision to the user.
 
-Users should be able to understand how an analysis was produced.
+### Protect
 
-### Non-binary
-
-Security situations are not always simply safe or malicious.
-
-### User-controlled
-
-The application provides information and analysis while leaving the final decision with the user.
-
----
-
-# 🖼️ Interface Philosophy
-
-The interface is designed around a simple hierarchy:
-
-```text
-INPUT
-  ↓
-WHAT WAS DETECTED?
-  ↓
-WHY DOES IT MATTER?
-  ↓
-WHAT EVIDENCE SUPPORTS IT?
-  ↓
-WHAT SHOULD I VERIFY?
-```
-
-This keeps the analysis focused on information users can actually understand and act upon.
-
----
-
-# ⚡ Performance Goals
-
-The project aims to keep the analysis experience responsive by:
-
-* Keeping the frontend lightweight
-* Separating UI and backend responsibilities
-* Processing only necessary information
-* Returning structured analysis results
-* Avoiding unnecessary network operations
-* Keeping analysis components modular
-
----
-
-# 🧱 Modularity
-
-The backend is designed so different analysis modules can be developed independently.
-
-```text
-                    Analyzer
-                       │
-        ┌──────────────┼──────────────┐
-        │              │              │
-        ▼              ▼              ▼
-     Bitcoin         Nostr           URL
-     Analyzer        Analyzer       Analyzer
-        │              │              │
-        └──────────────┼──────────────┘
-                       │
-                       ▼
-                Signal Correlation
-                       │
-                       ▼
-                  AI Analysis
-                       │
-                       ▼
-                   Explanation
-```
-
-This makes it possible to expand Satoshi Sentinel without rebuilding the entire system.
-
----
-
-# 🧪 Testing
-
-Testing will cover different layers of the application.
-
-## Frontend
-
-* Component behavior
-* Input validation
-* Page navigation
-* Responsive layouts
-* Analysis result rendering
-
-## Backend
-
-* API endpoints
-* Input validation
-* Analysis services
-* Error handling
-* Structured responses
-
-## Security Analysis
-
-* Bitcoin inputs
-* Nostr inputs
-* URLs
-* Social-engineering messages
-* Multiple signals occurring together
-
----
-
-# 🛠️ Error Handling
-
-The application should clearly handle situations such as:
-
-```text
-Invalid Input
-      ↓
-Clear Validation Message
-
-Unavailable Service
-      ↓
-Informative Error
-
-Incomplete Data
-      ↓
-Explain Missing Information
-
-Analysis Failure
-      ↓
-Safe Fallback
-```
-
-The interface should avoid presenting incomplete analysis as a definitive result.
+Keep privacy and responsible data handling central to the design.
 
 ---
 
@@ -1109,44 +564,37 @@ The interface should avoid presenting incomplete analysis as a definitive result
 
 Contributions are welcome.
 
-A typical contribution workflow is:
-
 ```bash
 git clone https://github.com/sreshtha1804-code/Satoshi-Sentinel.git
-
 cd Satoshi-Sentinel
 
 git checkout -b feature/your-feature
 
 git add .
-
 git commit -m "Add your feature"
 
 git push origin feature/your-feature
 ```
 
-Then open a pull request describing:
+When opening a pull request, include:
 
 * What was changed
 * Why it was changed
 * How it was tested
-* Any known limitations
+* Known limitations
 
 ---
 
-# 📌 Development Guidelines
+# 🛠️ Development Guidelines
 
-When contributing to Satoshi Sentinel:
-
-* Keep security-related logic explainable
-* Avoid unnecessary collection of user data
-* Do not expose private credentials
-* Keep frontend and backend responsibilities separated
-* Validate user input
-* Handle API failures gracefully
-* Keep analysis signals modular
-* Document new analysis logic
-* Avoid presenting uncertain results as guaranteed facts
+* Keep security logic explainable.
+* Validate user input.
+* Avoid unnecessary data collection.
+* Never expose credentials or private keys.
+* Keep frontend and backend responsibilities separated.
+* Handle API failures gracefully.
+* Keep analysis modules modular.
+* Do not present uncertain results as guaranteed facts.
 
 ---
 
@@ -1154,7 +602,7 @@ When contributing to Satoshi Sentinel:
 
 Satoshi Sentinel is an experimental security-assistance project.
 
-Its analysis should **not** be treated as a guarantee that a transaction, Bitcoin address, Nostr identity, URL, message, or payment request is safe or malicious.
+Its analysis is **not a guarantee** that a Bitcoin address, transaction, Nostr identity, URL, message, or payment request is safe or malicious.
 
 Users should independently verify important information before:
 
@@ -1167,11 +615,27 @@ Users should independently verify important information before:
 
 ---
 
-# 📜 License
+# 🏆 Hackathon
 
-This project is licensed under the **MIT License**.
+**BOSS Battle 2026 — Bitshala**
 
-See the [`LICENSE`](LICENSE) file for the complete license text.
+**Track:** AI
+
+### Focus
+
+```text
+Bitcoin
++
+Nostr
++
+AI
++
+Security
++
+Explainability
++
+Privacy
+```
 
 ---
 
@@ -1194,63 +658,15 @@ Interested in:
 ### Links
 
 * GitHub: https://github.com/sreshtha1804-code
-* Project Repository: https://github.com/sreshtha1804-code/Satoshi-Sentinel
+* Repository: https://github.com/sreshtha1804-code/Satoshi-Sentinel
 
 ---
 
-# 🏆 Hackathon Project
+# 📜 License
 
-**Satoshi Sentinel** was developed as a project for **BOSS Battle 2026 by Bitshala**.
+This project is licensed under the **MIT License**.
 
-### Track
-
-**AI**
-
-### Focus
-
-```text
-Bitcoin
-+
-Nostr
-+
-AI
-+
-Security
-+
-Explainability
-+
-Privacy
-```
-
----
-
-# 🧭 Project Vision
-
-Satoshi Sentinel is built around a simple idea:
-
-> **Security should not depend on blind trust.**
-
-In decentralized systems, users often become their own final security layer.
-
-Satoshi Sentinel aims to make that layer more informed by bringing together:
-
-```text
-Identity
-      +
-Communication
-      +
-Transactions
-      +
-URLs
-      +
-Behavior
-      +
-Evidence
-      ↓
-Explainable Security Analysis
-```
-
-The long-term goal is to make security analysis more understandable and accessible across decentralized financial and communication ecosystems.
+See the [`LICENSE`](LICENSE) file for details.
 
 ---
 
