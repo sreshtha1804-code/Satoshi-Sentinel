@@ -45,7 +45,9 @@ Social Engineering
 Context
 ```
 
-These signals are correlated with available evidence and then presented through an understandable explanation.
+These signals are correlated with available evidence and presented through an understandable explanation.
+
+### Analysis Pipeline
 
 ```text
 User Input
@@ -90,42 +92,76 @@ The project is designed to analyze:
 * Identity-related signals
 * Suspicious activity patterns
 
-This can help users investigate unfamiliar Nostr information before interacting with it.
+This helps users investigate unfamiliar Nostr information before interacting with it.
 
 ---
 
-## 🔗 URL & Social Engineering Analysis
+## 🔗 URL Analysis
 
-Satoshi Sentinel can examine suspicious links and messages for security-relevant patterns.
+Satoshi Sentinel can examine suspicious URLs for security-relevant indicators.
 
 Possible signals include:
 
 * Suspicious URL structures
 * Domain-related indicators
+* Unusual patterns
+* Context surrounding the link
+* Social-engineering context
+
+---
+
+## 💬 Social Engineering Analysis
+
+Messages can be analyzed for patterns such as:
+
 * Urgency
 * Impersonation
 * Pressure to act
 * Requests for sensitive information
 * Suspicious payment instructions
 * Manipulative language
+* Unusual instructions
+* Trust exploitation
 
-These signals are considered alongside other available evidence.
+These signals can then be considered alongside other available evidence.
 
 ---
 
 # 🖥️ Application
 
-### 🏠 Dashboard
+## 🏠 Dashboard
 
-Central entry point providing access to analysis, recent activity, quick actions, history, and settings.
+The central entry point to Satoshi Sentinel.
 
-### 🔍 Analyze
+Provides access to:
 
-Allows users to submit addresses, URLs, messages, Nostr information, payment requests, and other suspicious content.
+* Security analysis
+* Recent activity
+* Quick actions
+* Explain Before You Sign
+* History
+* Settings
 
-### 📊 Analysis Result
+---
 
-Displays:
+## 🔍 Analyze
+
+The primary interface for submitting information for analysis.
+
+Users can provide:
+
+* Bitcoin addresses
+* URLs
+* Messages
+* Nostr information
+* Payment requests
+* Other suspicious content
+
+---
+
+## 📊 Analysis Result
+
+Displays the output of the analysis, including:
 
 * Risk level
 * Detected signals
@@ -134,9 +170,13 @@ Displays:
 * Relevant warnings
 * Additional context
 
-### ✍️ Explain Before You Sign
+---
 
-Helps users understand what they are about to approve or sign by focusing on:
+## ✍️ Explain Before You Sign
+
+Designed around the moment before a user approves or signs an important action.
+
+It focuses on questions such as:
 
 ```text
 WHO?
@@ -158,11 +198,15 @@ VERIFY?
 What should be independently checked?
 ```
 
-### 📜 History
+---
+
+## 📜 History
 
 Allows users to review previous analyses and detected signals.
 
-### ⚙️ Settings
+---
+
+## ⚙️ Settings
 
 Provides application configuration and privacy-related controls.
 
@@ -196,7 +240,7 @@ The project focuses on:
         ┌───────┼────────┐              ┌───────┼────────┐
         │       │        │              │       │        │
         ▼       ▼        ▼              ▼       ▼        ▼
-    Dashboard Analyze  History       API     Analysis    AI
+    Dashboard Analyze  History        API     Analysis    AI
         │       │        │              │       │        │
         └───────┼────────┘              └───────┼────────┘
                 │                               │
@@ -313,7 +357,6 @@ Satoshi-Sentinel/
 │   └── .env.example
 │
 ├── .gitignore
-├── LICENSE
 ├── CONTRIBUTING.md
 └── README.md
 ```
@@ -366,8 +409,6 @@ The exact API structure may evolve as development continues.
 
 Satoshi Sentinel does not treat a single unfamiliar signal as automatically malicious.
 
-For example:
-
 ```text
 Unknown Identity
        ↓
@@ -384,7 +425,27 @@ Behavioral Signals
 Combined Analysis
 ```
 
-This allows the application to consider multiple signals together.
+Multiple signals can be considered together to provide broader context.
+
+---
+
+# 🧠 AI + Evidence
+
+AI acts as an **analysis and explanation layer**.
+
+The architecture separates:
+
+```text
+Evidence
+   ↓
+Signals
+   ↓
+Analysis
+   ↓
+Explanation
+```
+
+AI-generated explanations should not be treated as independent proof. The system is designed to make relevant signals and evidence visible wherever possible.
 
 ---
 
@@ -615,30 +676,6 @@ Users should independently verify important information before:
 
 ---
 
-# 🏆 Hackathon
-
-**BOSS Battle 2026 — Bitshala**
-
-**Track:** AI
-
-### Focus
-
-```text
-Bitcoin
-+
-Nostr
-+
-AI
-+
-Security
-+
-Explainability
-+
-Privacy
-```
-
----
-
 # 👨‍💻 Author
 
 ## Sreshtha Das
@@ -659,14 +696,6 @@ Interested in:
 
 * GitHub: https://github.com/sreshtha1804-code
 * Repository: https://github.com/sreshtha1804-code/Satoshi-Sentinel
-
----
-
-# 📜 License
-
-This project is licensed under the **MIT License**.
-
-See the [`LICENSE`](LICENSE) file for details.
 
 ---
 
